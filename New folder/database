@@ -1,0 +1,112 @@
+
+CREATE TABLE uni(
+2
+   uni_id INT PRIMARY KEY,
+3
+   uni_name VARCHAR(255) NOT NULL,
+4
+   phone VARCHAR(25)NOT NULL,
+5
+   email VARCHAR(255)NOT NULL,
+6
+   street VARCHAR(255)NOT NULL,
+7
+   city VARCHAR(255)NOT NULL,
+8
+   country VARCHAR(255)NOT NULL
+9
+);
+10
+​
+11
+CREATE TABLE students(
+12
+  students_id INT PRIMARY KEY,
+13
+  students_name VARCHAR(20) NOT NULL,
+14
+  students_lastname VARCHAR(20)NOT NULL,
+15
+  students_status VARCHAR(50)NOT NULL,
+16
+  birth_date VARCHAR(50)NOT NULL,
+17
+  gender VARCHAR(50)NOT NULL,
+18
+  address VARCHAR(255)NOT NULL,
+19
+  second_address VARCHAR(255),
+20
+  flat_number INT,
+21
+  email VARCHAR(255) NOT NULL UNIQUE,
+22
+  students_transaction VARCHAR(255),
+23
+  uni_id INT NOT NULL,
+24
+  FOREIGN KEY(uni_id)
+25
+  REFERENCES uni(uni_id)
+26
+);
+27
+​
+28
+ 
+29
+ 
+30
+CREATE TABLE assistant_manager(
+31
+  assistant_manager_id INT PRIMARY KEY,
+32
+  assistant_manager_name VARCHAR(255)NOT NULL,
+33
+  assistant_manager_lastname VARCHAR(255)NOT NULL,
+34
+  gender VARCHAR(255)NOT NULL,
+35
+ address VARCHAR(255)NOT NULL,
+36
+  email VARCHAR(255)NOT NULL
+37
+);  
+38
+   CREATE TABLE courses(
+39
+    id INT,
+40
+    PRIMARY KEY(id),
+41
+    courses_name VARCHAR(255)NOT NULL,
+42
+    courses_price VARCHAR(255)NOT NULL,
+43
+    duration VARCHAR(255)
+44
+);
+45
+   CREATE TABLE subjects(
+46
+    subjects_id INT NOT NULL,
+47
+    subjects_name VARCHAR(255)NOT NULL,
+48
+    date_time VARCHAR(255)NOT NULL,
+49
+    PRIMARY KEY(subjects_id),
+50
+    course_id INT,
+51
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+52
+);
+53
+ CREATE TABLE lecturer(
+54
+  lecturer_id INT,
+55
+  lecturer_name VARCHAR(255) NOT NULL,
+56
+  lecturer_lastname VARCHAR(255)NOT NULL,
